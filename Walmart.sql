@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS sales(
     rating FLOAT(2, 1)
 );
 
--- -------------------------------------- Feature Engineering ------------------------------------------------- i) Add the time_of_day
+-- -------------------------------------- Feature Engineering -------------------------------------------------
+-- i) Add the time_of_day
 Select
 	time,
     (CASE 
@@ -71,7 +72,7 @@ SET month_name = MONTHNAME(date);
 -- --------------------------------------------------------------------------------------------------------
 
 -- ---------------------------------------- EDA -----------------------------------------------------------
--- ---------------------------------------- Generic Questions -----------------------------------------------------------
+-- ----------------------------------- Generic Questions --------------------------------------------------
 
 -- 1) How many unique cities does the data have?
 
@@ -87,9 +88,9 @@ SELECT
 FROM 
 	sales;
 
--- ---------------------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------
 
--- -------------------------------------------------- Product Question --------------------------------------------------------
+-- -------------------------------- Product Question -----------------------------------------------------
 
 -- How many unique product lines does the data have?
 
@@ -169,7 +170,7 @@ FROM
 GROUP BY product_line
 ORDER BY tax_pct DESC;
 
--- Fetch each product line and add a column to those product line showing "Good", "Bad". Good if its greater than average sales
+-- Fetch each product line and add a column to those lines showing "Good", and "Bad". Good if it's greater than average sales
 
 SELECT 
 	product_line,
@@ -182,7 +183,7 @@ FROM
 	sales
 GROUP BY product_line;
 
--- Which branch sold more products than average product sold?
+-- Which branch sold more products than the average product sold?
 
 SELECT 
 	branch,
@@ -214,9 +215,9 @@ FROM
 GROUP BY product_line
 ORDER BY avg_rating DESC;
 
--- ----------------------------------------------------------------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------------------------------------
 
--- ----------------------------------------------------- Customer Question ------------------------------------------------------------
+-- ------------------------------------ Customer Question ----------------------------------------------------
 
 -- How many unique customer types does the data have?
 
@@ -266,7 +267,7 @@ WHERE branch = "C"
 GROUP BY gender
 ORDER BY cnt_gender DESC;
 
--- Which time of the day do customers give most ratings?
+-- Which time of the day do customers give the most ratings?
 
 SELECT 
 	time_of_day,
@@ -276,7 +277,7 @@ FROM
 GROUP BY time_of_day
 ORDER BY cnt_rating DESC;
 
--- Which time of the day do customers give most ratings per branch?
+-- Which time of the day do customers give the most ratings per branch?
 
 SELECT
 	time_of_day,
@@ -296,11 +297,12 @@ FROM
 	sales
 GROUP BY day_name
 ORDER BY avg_rating DESC;
--- ----------------------------------------------------------------------------------------------------------------------------------
 
--- ------------------------------------------------------- Sales Question --------------------------------------------------------
+-- ---------------------------------------------------------------------------------------------------------
 
--- Number of sales made in each time of the day per weekday?
+-- ---------------------------------------- Sales Question -------------------------------------------------
+
+-- Number of sales made at each time of the day per weekday?
 
 SELECT 
 	time_of_day,
@@ -341,7 +343,7 @@ FROM
 GROUP BY customer_type
 ORDER BY tax_pct DESC;
 
--- Which product line had the most avg cogs (Cost Of Goods) and gross income?
+-- Which product line had the most average cogs (Cost Of Goods) and gross income?
 
 SELECT
 	product_line,
@@ -352,7 +354,7 @@ FROM
 GROUP BY product_line
 ORDER BY avg_income DESC;
 
--- In which month had the highest avg rating?
+-- In which month had the highest average rating?
 
 SELECT 
 	month_name,
@@ -362,7 +364,7 @@ FROM
 GROUP BY month_name
 ORDER BY avg_rating DESC;
 
--- Which of the gender brings the most gross income?
+-- Which of the genders brings the most gross income?
 
 SELECT
 	gender,
@@ -371,4 +373,6 @@ FROM
 	sales
 GROUP BY gender
 ORDER BY avg_income DESC;
--- ------------------------------------------------------------------------------------------------------------------------------------ 
+
+-- ----------------------------------------------------------------------------------------------------------
+-- --------------------------------------------- The End ----------------------------------------------------
