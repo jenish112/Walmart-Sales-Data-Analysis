@@ -1,5 +1,7 @@
 # Walmart Sales Data Analysis
 
+<b>Tableau Link:</b>  https://public.tableau.com/app/profile/jenish.vekariya/viz/WalmartTabluae/Dashboard1
+
 ## About
 
 This project aims to explore Walmart Sales data to understand top-performing branches and products, sales trends of different products, and customer behavior. The aim is to study how sales strategies can be improved and optimized. The dataset was obtained from the [Kaggle Walmart Sales Dataset](https://www.kaggle.com/datasets/alaxcarry/walmart-sales-data).
